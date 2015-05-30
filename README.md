@@ -8,7 +8,7 @@ Run `bundle install`
 
 ## Usage
 
-Run `todo_list.rb`
+From the home folder run `lib/todo_list.rb`
 
 ## Credits
 
