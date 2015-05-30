@@ -1,6 +1,6 @@
 # TODO List
 
-A persistent todo list that runs in the console, and uses a db to save/store list items. Items can later be marked completed.
+A persistent todo list that runs in the console. Todo list items can be created, deleted, marked complete and edited after their creation.
 
 ## Installation
 
