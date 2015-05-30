@@ -12,4 +12,4 @@ Run `todo_list.rb`
 
 ## Credits
 
-Model Skeleton and original Todo List program taken from Justin Herrick https://github.com/jah2488
+Model Skeleton and original Todo List program taken from <a href="https://github.com/jah2488">Justin Herrick.</a>
