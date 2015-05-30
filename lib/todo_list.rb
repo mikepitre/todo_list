@@ -1,14 +1,15 @@
-class TodoList
+require_relative "../db/setup.rb"
+require_relative "todo"
 
-  def initialize(file_name)
-    @file_name = file_name
-  end
+
+class TodoList
 
   def start
     loop do
+      @todos = Todo.all
       system('clear')
 
-      puts "---- TODO.rb ----"
+      puts "---- Todo_List.rb ----"
 
       view_todos
 
@@ -28,31 +29,20 @@ class TodoList
     end
   end
 
-  def todos
-    @todos
-  end
-
   def view_todos
-    counter = 0
-    puts "Unfinished"
-    unfinished_todos = @todos.select { |todo| todo["completed"] == "no" }
-    unfinished_todos.each do |row|
-      counter += 1
-      puts "#{counter}) #{row["name"]}"
+    @todos.each do |item|
+      puts "#{item.id.to_s} | #{item.entry} | #{item.completed}"
     end
-    puts "Completed"
   end
 
   def add_todo
     puts "Name of Todo > "
-    @todos << [get_input, "no"]
-    save!
+    Todo.create(entry: get_input)
   end
 
   def mark_todo
     puts "Which todo have you finished?"
-    @todos[get_input.to_i - 1]["completed"] = "yes"
-    save!
+    Todo.update(get_input, completed: true)
   end
 
 
@@ -65,3 +55,5 @@ class TodoList
 
   # end
 end
+
+TodoList.new.start
